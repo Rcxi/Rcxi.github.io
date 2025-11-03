@@ -1,17 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
-  <entry>
-    <title>BUUCTF</title>
-    <url>/2025/11/03/BUUCTF/</url>
-    <content><![CDATA[<h2 id="极客大挑战2019-EasySQL"><a href="#极客大挑战2019-EasySQL" class="headerlink" title="[极客大挑战2019]EasySQL"></a>[极客大挑战2019]EasySQL</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">用户名：1&#x27; or 1=1 #</span><br></pre></td></tr></table></figure>
-
-<h2 id="极客大挑战2019-玩得开心"><a href="#极客大挑战2019-玩得开心" class="headerlink" title="[极客大挑战2019]玩得开心"></a>[极客大挑战2019]玩得开心</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$cat=$_GET[&#x27;cat&#x27;];</span><br></pre></td></tr></table></figure>
-
-<h2 id="ACTF2020新生赛-包括"><a href="#ACTF2020新生赛-包括" class="headerlink" title="[ACTF2020新生赛]包括"></a>[ACTF2020新生赛]包括</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">php伪协议主要用来读取文件</span><br></pre></td></tr></table></figure>
-
-<h2 id="ACTF2020新生赛-Exec"><a href="#ACTF2020新生赛-Exec" class="headerlink" title="[ACTF2020新生赛]Exec"></a>[ACTF2020新生赛]Exec</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">target=127.0.0.1|cat+/f*</span><br></pre></td></tr></table></figure>
-
-<h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">相对于上个命令执行添加的过滤条件</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
 </search>
