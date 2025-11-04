@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-cn">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> 你好,陌生人</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/tubiao.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+ <!-- 显示社交媒体图标 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+
+
+<body>
+  <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="page-"
+  class="article article-type-page"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+       
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="upload-labs开普勒安全团队魔改版V1-0"><a href="#upload-labs开普勒安全团队魔改版V1-0" class="headerlink" title="upload-labs开普勒安全团队魔改版V1.0"></a>upload-labs开普勒安全团队魔改版V1.0</h1><h5 id="原始靶场环境：https-github-com-c0ny1-upload-labs"><a href="#原始靶场环境：https-github-com-c0ny1-upload-labs" class="headerlink" title="原始靶场环境：https://github.com/c0ny1/upload-labs"></a>原始靶场环境：<a target="_blank" rel="noopener" href="https://github.com/c0ny1/upload-labs">https://github.com/c0ny1/upload-labs</a></h5><h5 id="本项目是通过魔改原始靶场环境，诞生的开普勒安全团队修改版，重新使用PHP7编写，增加了每个题目的解题WP和四道实战环境，并且保留了原版的风味！"><a href="#本项目是通过魔改原始靶场环境，诞生的开普勒安全团队修改版，重新使用PHP7编写，增加了每个题目的解题WP和四道实战环境，并且保留了原版的风味！" class="headerlink" title="本项目是通过魔改原始靶场环境，诞生的开普勒安全团队修改版，重新使用PHP7编写，增加了每个题目的解题WP和四道实战环境，并且保留了原版的风味！"></a>本项目是通过魔改原始靶场环境，诞生的开普勒安全团队修改版，重新使用PHP7编写，增加了每个题目的解题WP和四道实战环境，并且保留了原版的风味！</h5><h5 id="本项目会持续更新，任何人可以向我提交漏洞复现环境，一经采用将出现在靶场的致谢单！提交邮箱：admin-360bug-net"><a href="#本项目会持续更新，任何人可以向我提交漏洞复现环境，一经采用将出现在靶场的致谢单！提交邮箱：admin-360bug-net" class="headerlink" title="本项目会持续更新，任何人可以向我提交漏洞复现环境，一经采用将出现在靶场的致谢单！提交邮箱：admin@360bug.net"></a>本项目会持续更新，任何人可以向我提交漏洞复现环境，一经采用将出现在靶场的致谢单！提交邮箱：<a href="mailto:&#97;&#x64;&#x6d;&#x69;&#x6e;&#x40;&#x33;&#54;&#x30;&#98;&#x75;&#x67;&#x2e;&#110;&#x65;&#116;">admin@360bug.net</a></h5><h5 id="最后，致敬老前辈，原始靶场项目发起人c0ny1师傅！"><a href="#最后，致敬老前辈，原始靶场项目发起人c0ny1师傅！" class="headerlink" title="最后，致敬老前辈，原始靶场项目发起人c0ny1师傅！"></a>最后，致敬老前辈，原始靶场项目发起人c0ny1师傅！</h5><h1 id="环境要求："><a href="#环境要求：" class="headerlink" title="环境要求："></a>环境要求：</h1><h5 id="官方建议：phpstudy（小皮面板）"><a href="#官方建议：phpstudy（小皮面板）" class="headerlink" title="官方建议：phpstudy（小皮面板）"></a>官方建议：phpstudy（小皮面板）</h5><h5 id="运行环境：PHP7-3-10-PHP5-2-17"><a href="#运行环境：PHP7-3-10-PHP5-2-17" class="headerlink" title="运行环境：PHP7.3.10~PHP5.2.17"></a>运行环境：PHP7.3.10~PHP5.2.17</h5><h5 id="中间件采用：Apache，且设置以moudel方式连接"><a href="#中间件采用：Apache，且设置以moudel方式连接" class="headerlink" title="中间件采用：Apache，且设置以moudel方式连接"></a>中间件采用：Apache，且设置以moudel方式连接</h5><h5 id="PHP需要开启组件：php-gd2-php-exif"><a href="#PHP需要开启组件：php-gd2-php-exif" class="headerlink" title="PHP需要开启组件：php_gd2,php_exif"></a>PHP需要开启组件：php_gd2,php_exif</h5><h2 id="免责声明："><a href="#免责声明：" class="headerlink" title="免责声明："></a>免责声明：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.依据《刑法修正案（七）》第9条增订的《刑法》第285条第3款的规定，犯提供非法侵入或者控制计算机信息系罪的，处3年以下有期徒刑或者拘役，并处或者单处罚金；情节特别严重的，处3年以上7年以下有期徒刑，并处罚金。</span><br><span class="line">2.第二百八十五条第二款 违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金；情节特别严重的，处三年以上七年以下有期徒刑，并处罚金。</span><br><span class="line">3.刑法第二百五十三条之一：“国家机关或者金融、电信、交通、教育、医疗等单位的工作人员，违反国家规定，将本单位在履行职责或者提供服务过程中获得的公民个人信息，出售或者非法提供给他人，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金。情节特别严重的，处三年以上七年以下有期徒刑，并处罚金。</span><br></pre></td></tr></table></figure>
+
+<p><strong>由于传播、利用开源信息而造成的任何直接或间接的后果及损失，均由使用者本人负责，作者不承担任何责任。</strong></p>
+<h5 id="开源仅作为安全研究之用！切勿用作实战用途！仅限于本地复现！"><a href="#开源仅作为安全研究之用！切勿用作实战用途！仅限于本地复现！" class="headerlink" title="开源仅作为安全研究之用！切勿用作实战用途！仅限于本地复现！"></a>开源仅作为安全研究之用！切勿用作实战用途！仅限于本地复现！</h5><h5 id=""><a href="#" class="headerlink" title=""></a></h5><h1 id="主页面"><a href="#主页面" class="headerlink" title="主页面"></a>主页面</h1><p><img src="/./about/1.png"></p>
+<p><img src="/./about/2.png"></p>
+<p><img src="/./about/3.png"></p>
+<p><img src="/./about/4.png"></p>
+<h1 id="亮点"><a href="#亮点" class="headerlink" title="亮点"></a>亮点</h1><h2 id="1-重构UI"><a href="#1-重构UI" class="headerlink" title="1.重构UI"></a>1.重构UI</h2><p><img src="/about/5.png"></p>
+<h2 id="2-增加原始二十道题目的解析"><a href="#2-增加原始二十道题目的解析" class="headerlink" title="2.增加原始二十道题目的解析"></a>2.增加原始二十道题目的解析</h2><h3 id="举例："><a href="#举例：" class="headerlink" title="举例："></a>举例：</h3><p><img src="/about/6.png"></p>
+<p><img src="/about/7.png"></p>
+<p><img src="/about/8.png"></p>
+<h2 id="3-增加贴合实战关卡"><a href="#3-增加贴合实战关卡" class="headerlink" title="3.增加贴合实战关卡"></a>3.增加贴合实战关卡</h2><p><img src="/about/11.png"></p>
+<p><img src="/about/9.png"></p>
+<p><img src="/about/10.png"></p>
+<p>​	</p>
+<h2 id="4-细心"><a href="#4-细心" class="headerlink" title="4.细心"></a>4.细心</h2><h5 id="因为PHP5和PHP7的区别，导致部分关卡无法通关，于是在提示中贴心的说明了需要切换当前的PHP版本。"><a href="#因为PHP5和PHP7的区别，导致部分关卡无法通关，于是在提示中贴心的说明了需要切换当前的PHP版本。" class="headerlink" title="因为PHP5和PHP7的区别，导致部分关卡无法通关，于是在提示中贴心的说明了需要切换当前的PHP版本。"></a>因为PHP5和PHP7的区别，导致部分关卡无法通关，于是在提示中贴心的说明了需要切换当前的PHP版本。</h5><h5 id="每一道题目都经过验证，均可通关。"><a href="#每一道题目都经过验证，均可通关。" class="headerlink" title="每一道题目都经过验证，均可通关。"></a>每一道题目都经过验证，均可通关。</h5><h1 id="致谢："><a href="#致谢：" class="headerlink" title="致谢："></a>致谢：</h1><h4 id="Leeda-UI设计-开发"><a href="#Leeda-UI设计-开发" class="headerlink" title="Leeda  ::UI设计+开发"></a>Leeda  ::UI设计+开发</h4><h4 id="Alan知识星球全体用户-信任与支持"><a href="#Alan知识星球全体用户-信任与支持" class="headerlink" title="Alan知识星球全体用户 ::信任与支持"></a>Alan知识星球全体用户 ::信任与支持</h4><h2 id="PS：目前其他靶场正在加紧融合开发中，靶场文件中存在一些无关文件，请保留，后续将可通过配置这些文件实现不同靶场之间的联动。"><a href="#PS：目前其他靶场正在加紧融合开发中，靶场文件中存在一些无关文件，请保留，后续将可通过配置这些文件实现不同靶场之间的联动。" class="headerlink" title="PS：目前其他靶场正在加紧融合开发中，靶场文件中存在一些无关文件，请保留，后续将可通过配置这些文件实现不同靶场之间的联动。"></a>PS：目前其他靶场正在加紧融合开发中，靶场文件中存在一些无关文件，请保留，后续将可通过配置这些文件实现不同靶场之间的联动。</h2><h2 id="如有错别字，或者任何Bug，请随时与我联系，侵权请联系删除。admin-360bug-net"><a href="#如有错别字，或者任何Bug，请随时与我联系，侵权请联系删除。admin-360bug-net" class="headerlink" title="如有错别字，或者任何Bug，请随时与我联系，侵权请联系删除。admin@360bug.net"></a>如有错别字，或者任何Bug，请随时与我联系，侵权请联系删除。<a href="mailto:&#x61;&#100;&#x6d;&#105;&#110;&#x40;&#x33;&#x36;&#x30;&#x62;&#x75;&#x67;&#46;&#110;&#101;&#x74;">admin@360bug.net</a></h2> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/upload/README.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "Liv5ACtyVrDkFpSAcOrMyVAA-MdYXbMMI",
+    app_key: "kS8kevRRuJMSobNhcu8CYGvJ",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2025
+        <i class="ri-heart-fill heart_icon"></i> 琳烦雨
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/1.svg" alt="你好,陌生人"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2025/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=488249475&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+<!-- hexo injector body_end start --><script data-pjax src="https://unpkg.com/oh-my-live2d"></script><script>const oml2d = OML2D.loadOml2d({dockedPosition:"left",mobileDisplay:true,models:[{"path":"https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,35],"scale":0.15,"stageStyle":{"width":250,"height":250}},{"path":"https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json","scale":0.12,"position":[0,0],"stageStyle":{"width":250},"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180}},{"path":"https://unpkg.com/live2d-widget-model-haruto@1.0.5/assets/haruto.model.json","scale":0.12,"position":[0,0],"mobileScale":0.08,"mobilePosition":[0,0],"mobileStageStyle":{"width":180},"stageStyle":{"width":250}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:false,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% - 30px)","top":"-100px"},idleTips:{interval:15000,message:function(){
+  return axios.get('https://v1.hitokoto.cn?c=i')
+    .then(function (response) {
+      return response.data.hitokoto ;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
+}}});</script><!-- hexo injector body_end end --></body>
+
+</html>
