@@ -163,6 +163,68 @@
     
     
     <article
+  id="post-家庭网络"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/11/08/%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C/"
+    >家庭网络</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/11/08/%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C/" class="article-date">
+  <time datetime="2025-11-08T02:48:55.000Z" itemprop="datePublished">2025-11-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">网络基础</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>在运营商购买宽带服务，接入光猫，一般来说这样就可以上网了，但仅限于有线连接，所以还会接入一台路由器，使用网线与路由器的 “wan” 口连接，光猫通过ppoe拨号获取运营商分配的公网ip，路由器获取到光猫分配的内网ip （仅是举例，实则两个获取到的都是内网ip，运营商级NAT）</p>
+<p>对于网关来说，谁拨号获取到ip，谁就是网关，在这里光猫就是网关，而路由器则是NAT</p>
+<p>当一台主机要连接到网络，插上网线后，DHCP协议开始工作，电脑的DHCP客户端发起一个DHCP请求，用来获取IP，请求会被层层封装<br>以<span style="color:yellow">“TCP&#x2F;IP四层模型</span>”四层模型为例 	<span style="color:yellow">应用层 传输层 网络层 网路接口层</span></p>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据来到 &#x27;传输层&#x27;，传输层指定 DHCP 请求通过(?)协议，发往(?)端口</span><br></pre></td></tr></table></figure>
+<p>层封装的数据包会从电脑的网卡接口顺着网线来到<span style="color:yellow">路由器的LAN1</span>普通的家用路由器只能解析<span style="color:yellow">网络接口层</span>的设备，其次除了MAC地址，<span style="color:yellow">IP、端口</span>都看不懂<br>路由器内部有一个<span style="color:yellow">MAC地址映射表</span>记录接口每个对应的MAC地址，用于转发数据<br>从LAN1接收到数据后，把源MAC地址保存到映射表，查看目标MAC是一个广播MAC地址，给每个连接的接口分配一个（主机网口，路由器WAN口）<br>当主机数据包根据网络模型解封装收到时，网络接口层看到是广播MAC地址，接受<br>网络层看到目标是广播IP地址，接受<br>传输层看到的是UDP方式从主机的68号端口发往路由器的67端口，但电脑没必要开67端口，丢弃</p>
+<p>可能传输层会觉得不一致，正常情况是 ‘主机68’ -&gt; ‘路由器DHCP67’ ，为什么后面要加一句<span style="color:yellow">“电脑没必要开…….”</span>是因为路由器LAN口看到的是广播MAC地址干脆把连接口都发一遍（它不知道要发给路由器所以也给主机发了一份）</p>
+<p>&lt;———以上数据包发送主机———-&gt;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同样的数据来到路由器，网络接口层和网络层会接受，传输层看到目标是UDP67端口，数据包交给DHCP服务，收到后会从IP池中分配一个未被占用的IP地址，还要子网掩码、网关、DNS、租期等</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-BUUCTF"
   class="article article-type-post"
   itemscope
