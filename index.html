@@ -203,7 +203,7 @@
 
 	当一台主机要连接到网络，插上网线后，DHCP协议开始工作，电脑的DHCP客户端发起一个DHCP请求，用来获取IP，请求会被层层封装
 	
-以 &lt;span style=&quot;color:yellow&quot;&gt;&quot;TCP/IP 四层模型&quot;&lt;/span&gt; 四层模型&quot; 为例 	&lt;span style=&quot;color:yellow&quot;&gt;应用层 传输层 网络层 网路接口层&lt;/span&gt;
+以 &quot;TCP/IP四层模型&quot; 为例 	应用层 传输层 网络层 网路接口层
 </code></pre>
 <h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">数据来到 &#x27;传输层&#x27;，传输层指定 DHCP 请求通过(?)协议，发往(?)端口</span><br><span class="line">DHCP规定 客户端默认使用 68号UDP端口 服务端默认使用 67号UDP端口  源端口 68 --&gt;目标端口 67</span><br><span class="line"></span><br><span class="line">数据来到 &#x27;网络层&#x27;，网络层的功能本来是封装IP，但这时候主机还在请求IP，但是它不知道谁是DHCP服务器，不管了，数据包发给所有设备</span><br><span class="line">	目标IP是一个广播IP（255.255.255.255）源IP（0.0.0.0 未指定IP）    接受设备知道是谁发送的</span><br><span class="line">		</span><br><span class="line">数据来到 &#x27;网络接口层&#x27;，此层的功能是封装网卡的MAC地址，源MAC地址（网卡的物理地址括弧也称之为MAC地址）目标MAC是（ff.ff.ff.ff.ff.ff 广播MAC地址，因为不知道发给谁）</span><br></pre></td></tr></table></figure>
 
